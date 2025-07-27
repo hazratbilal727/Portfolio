@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazrat Bilal | UI/UX & Graphic Designer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;       /* Professional blue */
+            --primary-light: #3b82f6;
+            --secondary: #1e293b;      /* Dark slate for contrast */
+            --accent: #f59e0b;         /* Warm accent color */
+            --text: #334155;          /* Main text color */
+            --light: #f8fafc;         /* Light background */
+            --dark: #0f172a;           /* Dark elements */
+            --gray: #64748b;           /* Secondary text */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 25%;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+
+        .personal-info {
+            margin-top: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .info-item i {
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        /* Experience Section */
+        .experience-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            flex: 1 1 300px;
+            max-width: 400px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .experience-card p {
+            color: var(--gray);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            flex: 1 1 200px;
+            max-width: 250px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .project-info p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .project-tag {
+            background-color: #e0e7ff;
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .project-links a:hover {
+            color: var(--primary-light);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .contact-container p {
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1 1 250px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero {
+                padding: 120px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-container {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .project-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Hazrat <span>Bilal</span></div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>UI/UX & Graphic Designer</h1>
+            <p>Creating beautiful, functional designs that solve problems and delight users.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Hire Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know me and my professional journey</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Hazrat Bilal">
+                </div>
+                <div class="about-text">
+                    <h3>Professional Designer from Swabi, Pakistan</h3>
+                    <p>I'm a passionate UI/UX and graphic designer with expertise in creating visually appealing and user-friendly designs. My approach combines aesthetics with functionality to deliver exceptional user experiences.</p>
+                    <p>With a keen eye for detail and a strong understanding of design principles, I help businesses communicate their message effectively through thoughtful design solutions.</p>
+                    <div class="personal-info">
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <h4>Name:</h4>
+                                <p>Hazrat Bilal</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email:</h4>
+                                <p>hazratbilalvlog@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone:</h4>
+                                <p>03159099390</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address:</h4>
+                                <p>Chota Lahore, District Swabi, Pakistan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Experience</h2>
+                <p>Professional journey and areas of expertise</p>
+            </div>
+            <div class="experience-container">
+                <div class="experience-card">
+                    <h3>UI/UX Design</h3>
+                    <p>Specializing in creating intuitive user interfaces and seamless user experiences. I focus on user research, wireframing, prototyping, and usability testing to deliver products that users love.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>Graphic Design</h3>
+                    <p>Creating visually compelling designs for branding, marketing materials, and digital media. My work includes logo design, brochures, social media graphics, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+                <p>Technical abilities and design expertise</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating user-centered interfaces with Figma, Adobe XD, and Sketch</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-palette"></i>
+                    <h3>Graphic Design</h3>
+                    <p>Professional designs with Adobe Photoshop, Illustrator, and InDesign</p>
+                </div>
+             
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Design</h3>
+                    <p>Designs that work seamlessly across all devices and screen sizes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Projects Section -->
+<section id="projects" class="section-projects">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Projects</h2>
+            <p>Selected work showcasing my design capabilities</p>
+        </div>
+        <div class="projects-container">
+            <!-- Project 1: Portfolio Website -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" alt="Portfolio Website">
+                </div>
+                <div class="project-info">
+                    <h3>My Portfolio Website</h3>
+                    <p>A responsive personal portfolio website showcasing my skills, projects, and professional journey with clean design and smooth animations.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Web Design</span>
+                        <span class="project-tag">HTML/CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> Source Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: E-commerce App -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="E-commerce App Design">
+                </div>
+                <div class="project-info">
+                    <h3>E-commerce Mobile App</h3>
+                    <p>A complete UI/UX redesign for a fashion e-commerce app focusing on improving conversion rates and user engagement.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">UI Design</span>
+                        <span class="project-tag">UX Research</span>
+                        <span class="project-tag">Prototyping</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Online Study App -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1422&q=80" alt="Online Study App">
+                </div>
+                <div class="project-info">
+                    <h3>Online Study App</h3>
+                    <p>An educational platform featuring interactive courses, progress tracking, and community features to enhance online learning experiences.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Mobile Design</span>
+                        <span class="project-tag">EdTech</span>
+                        <span class="project-tag">User Flows</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Prototype</a>
+                        <a href="#"><i class="fab fa-figma"></i> Figma File</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hire Me</h2>
+                <p>Let's work together on your next project</p>
+            </div>
+            <div class="contact-container">
+                <h3>Ready to discuss your project?</h3>
+                <p>I'm available for freelance work and would love to hear about your design needs. Get in touch and let's create something amazing together.</p>
+                <a href="mailto:hazratbilalvlog@gmail.com" class="btn btn-primary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Hazrat Bilal</h3>
+                    <p>Professional UI/UX and Graphic Designer creating meaningful digital experiences.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Chota Lahore, Swabi, Pakistan</p>
+                    <p><i class="fas fa-envelope"></i> hazratbilalvlog@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +92 315 9099390</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Hazrat Bilal. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('.nav-links').style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
